@@ -1,0 +1,32 @@
+{
+  "name": "100devs-social-media",
+  "version": "1.0.0",
+  "description": "Social Media App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelizaguirre501/100devs-social-media.git"
+  },
+  "author": "Table 4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelizaguirre501/100devs-social-media/issues"
+  },
+  "homepage": "https://github.com/michaelizaguirre501/100devs-social-media#readme",
+  "dependencies": {
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.12.6",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
