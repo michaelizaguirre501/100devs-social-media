@@ -7,7 +7,6 @@ const ejs = require('ejs')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
-const connectdb = require('./config/database')
 const connectDB = require('./config/database')
 
 const app = express()
