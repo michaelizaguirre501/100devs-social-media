@@ -1,18 +1,36 @@
-const path = require('path')
 const express = require('express')
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const morgan = require('morgan')
-const ejs = require('ejs')
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')
-const connectDB = require('./config/database')
-
 const app = express()
-connectDB()
+const mongoose = require("mongoose");
+const connectDB = require('./config/database')
+const logger = require("morgan");
+const session = require("express-session");
 
-app.listen(
-    process.env.PORT,
-    console.log(`Server running on port ${process.env.PORT}`)
-)
+PORT = 8000
+
+connectDB()
+//Using Ejs for views
+app.set("view engine", "ejs");
+
+//Static Folder
+app.use(express.static("public"));
+
+//Body Parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+//Logging
+app.use(logger("dev"));
+
+// Setup Sessions - stored in MongoDB
+
+
+app.use("/", mainRoutes);
+
+
+
+
+
+//Server Running
+app.listen(PORT, () => {
+    console.log("Server is running, you better catch it!");
+});
