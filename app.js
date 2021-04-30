@@ -5,8 +5,10 @@ const connectDB = require('./config/database')
 const logger = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const methodOverride = require("method-override");
 const flash = require("express-flash");
-const router = require('./routes/main')
+const mainRoutes = require('./routes/main')
+const postRoutes = require("./routes/posts");
 
 connectDB()
 
@@ -28,13 +30,16 @@ app.use(express.json());
 //Logging
 app.use(logger("dev"));
 
+//Use forms for put and deletes
+app.use(methodOverride("_method"));
+
 // Setup Sessions - stored in MongoDB
 app.use(
   session({
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
@@ -44,7 +49,8 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.use("/", router); // this is telling the app to use the router file to respond to requests made to the site and setting the landing page to our login view file 
+app.use("/", mainRoutes); // this is telling the app to use the router file to respond to requests made to the site and setting the landing page to our login view file 
+app.use("/post", postRoutes);
 
 
 

@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
-<h1>FEED</h1>
 
+<h2>Your Feed</h2>
 <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
@@ -9,9 +9,10 @@
             <a href="/post/<%= posts[i]._id%>">
               <img class="img-fluid" src="<%= posts[i].image%>">
             </a>
-          </li>
+            </li>
         <% } %>
         </ul>
+        <a class="btn btn-primary" href="/profile">Return to Profile</a>
     </div>
   </div>
 
