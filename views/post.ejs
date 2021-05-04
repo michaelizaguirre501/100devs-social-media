@@ -27,6 +27,40 @@
     <div class="col-3 mt-5">
       <p><%= post.caption %></p>
     </div>
+
+<!-- Adding comments section-->
+    <div id="respond">
+
+      <h3>Leave a Comment</h3>
+    
+      <form
+          action="/post/addComments/<%= post.id %>?_method=PUT"
+          method="POST"
+          class="col-3"
+      >
+        <textarea name="newComment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </form>
+    </div>
+
+    <section>
+      <ul>
+        <% for(let i =0; i <post.addComments.length; i++) {%>
+        <li><%=post.addComments[i].theComments %>
+        
+        <% if(post.addComments[i].userId == user.id){ %>
+        <form
+            action="/post/deleteComment/<%= post.id%>?_method=PUT"
+            method="POST"
+            class="col-3"
+          >
+        <button class='deleteComment' type='submit'> Delete</button></li>
+        <% } %>
+      <% } %>
+    </ul>
+    </section> 
+
+
     <div class="col-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>

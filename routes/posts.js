@@ -13,4 +13,12 @@ router.put("/likePost/:id", postsController.likePost);
 
 router.delete("/deletePost/:id", postsController.deletePost);
 
+router.put("/addComments/:id", postsController.addComments)
+
+
+//delete comment
+router.put("/deleteComment/:id", postsController.deleteComment);
+
+
+
 module.exports = router;

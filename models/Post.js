@@ -29,6 +29,18 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
+  // Comments are saved in an array of [theComments, userId]
+  addComments: {
+    type: [{
+      theComments : String,
+      userId : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      }
+       }],
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("Post", PostSchema);
