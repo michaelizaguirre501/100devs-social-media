@@ -51,12 +51,16 @@ module.exports = {
       await Post.findOneAndUpdate(
         { _id: req.params.id },
         {
+
        $push: { 
          addComments: {
             theComments: req.body.newComment,
             userId: req.user.id
                       }
         },
+
+       $push: { addComments: req.body.newComment },
+
         }
       );
       console.log(`comment added ${req.body.newComment}`);
@@ -65,6 +69,7 @@ module.exports = {
       console.log(err);
     }
   },
+
 
   // Delete the comment where id of post is same as params.id and 
   // where the userId of the comment is same as req.user.id.
@@ -87,6 +92,26 @@ module.exports = {
     } catch (err) { console.log(err) }
   },
   
+
+  
+  // deleteComment: async (req, res)=>{
+  //   try{
+  //     console.log(req)
+  //     // await Post.findOneAndUpdate(
+  //     //   { _id: req.params.id },
+  //     //   {
+  //     //  $pull: { addComments: req.params.id },
+  //     //   }
+  //     // );
+  //     // console.log(`comment ${req.params.id} removed`);
+  //     res.redirect(`/post/${req.params.id}`);
+  //   } catch (err) {
+  //     // console.log(err);
+  //   }
+
+  // },
+
+
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(

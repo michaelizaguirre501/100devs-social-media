@@ -43,6 +43,7 @@
       </form>
     </div>
 
+
     <section>
       <ul>
         <% for(let i =0; i <post.addComments.length; i++) {%>
@@ -59,6 +60,19 @@
       <% } %>
     </ul>
     </section> 
+
+    
+     
+  <section>
+    <ul>
+   
+    <% for(let i =0; i <post.addComments.length; i++) {%>
+      <li><%=post.addComments[i] %>
+    <% } %>
+    </ul>
+    </section> 
+    
+
 
 
     <div class="col-6 mt-5">

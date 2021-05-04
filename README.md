@@ -1,3 +1,8 @@
 # 100devs-social-media
-cloudinary set up
+Delete comment functionality    
+Single post scroll  
+posted by under each post  
+return to feed fixed  
+login screen css  
+
 

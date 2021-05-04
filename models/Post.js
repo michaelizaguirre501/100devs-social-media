@@ -30,6 +30,7 @@ const PostSchema = new mongoose.Schema({
     default: Date.now,
   },
 
+
   // Comments are saved in an array of [theComments, userId]
   addComments: {
     type: [{
@@ -41,6 +42,13 @@ const PostSchema = new mongoose.Schema({
        }],
     required: false,
   },
+
+  addComments: {
+    // type: new Schema({ id: String }),
+    type: Array,
+    required: false,
+  }
+
 });
 
 module.exports = mongoose.model("Post", PostSchema);
