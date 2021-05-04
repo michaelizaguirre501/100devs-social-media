@@ -51,7 +51,16 @@ module.exports = {
       await Post.findOneAndUpdate(
         { _id: req.params.id },
         {
+
+       $push: { 
+         addComments: {
+            theComments: req.body.newComment,
+            userId: req.user.id
+                      }
+        },
+
        $push: { addComments: req.body.newComment },
+
         }
       );
       console.log(`comment added ${req.body.newComment}`);
@@ -60,6 +69,30 @@ module.exports = {
       console.log(err);
     }
   },
+
+
+  // Delete the comment where id of post is same as params.id and 
+  // where the userId of the comment is same as req.user.id.
+  // Current error: Deletes ALL the user comments.
+  deleteComment: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id},
+        {
+          $pull: {
+            addComments: {
+              userId: req.user.id
+
+            }
+          }
+        }
+      )
+      console.log(`Req.params is: ${req.body}`)
+      res.redirect(`/post/${req.params.id}`)
+    } catch (err) { console.log(err) }
+  },
+  
+
   
   // deleteComment: async (req, res)=>{
   //   try{
@@ -77,6 +110,7 @@ module.exports = {
   //   }
 
   // },
+
 
   likePost: async (req, res) => {
     try {
