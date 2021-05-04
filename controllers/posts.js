@@ -46,6 +46,38 @@ module.exports = {
       console.log(err);
     }
   },
+  addComments: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+       $push: { addComments: req.body.newComment },
+        }
+      );
+      console.log(`comment added ${req.body.newComment}`);
+      res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  
+  // deleteComment: async (req, res)=>{
+  //   try{
+  //     console.log(req)
+  //     // await Post.findOneAndUpdate(
+  //     //   { _id: req.params.id },
+  //     //   {
+  //     //  $pull: { addComments: req.params.id },
+  //     //   }
+  //     // );
+  //     // console.log(`comment ${req.params.id} removed`);
+  //     res.redirect(`/post/${req.params.id}`);
+  //   } catch (err) {
+  //     // console.log(err);
+  //   }
+
+  // },
+
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
