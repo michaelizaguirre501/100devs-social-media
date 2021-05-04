@@ -43,17 +43,22 @@
       </form>
     </div>
 
-    
-     
-  <section>
-    <ul>
-   
-    <% for(let i =0; i <post.addComments.length; i++) {%>
-      <li><%=post.addComments[i] %>
-    <% } %>
+    <section>
+      <ul>
+        <% for(let i =0; i <post.addComments.length; i++) {%>
+        <li><%=post.addComments[i].theComments %>
+        
+        <% if(post.addComments[i].userId == user.id){ %>
+        <form
+            action="/post/deleteComment/<%= post.id%>?_method=PUT"
+            method="POST"
+            class="col-3"
+          >
+        <button class='deleteComment' type='submit'> Delete</button></li>
+        <% } %>
+      <% } %>
     </ul>
     </section> 
-    
 
 
     <div class="col-6 mt-5">
