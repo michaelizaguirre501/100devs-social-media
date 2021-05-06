@@ -2,6 +2,17 @@ a:link {
   text-decoration: none
 }
 
+@media (min-width:991px){
+  #app-name{
+    text-align: left;
+  }
+
+}
+#profile-return-to-feed-btn{
+  width: 134px;
+  margin-top: 20px;
+  
+}
 img {
   width: 100%;
   height: auto;
@@ -9,6 +20,26 @@ img {
 
 }
 
+#feed-heading{
+  margin-top: 41px;
+  margin-bottom: 41px;
+}
+#footer-feed-return-to-profile-btn{
+  width: 144px;
+}
+
+#return-to-feed-btn {
+  margin-right: 5px;
+}
+
+@media (max-width: 991px){
+  #return-to-feed-btn {
+    margin-bottom: 10px;
+  }
+
+  
+  
+}
 
 body{
 
@@ -16,6 +47,7 @@ body{
 
 #respond {
     margin-top: 40px;
+    
   }
   
   #respond input[type='text'],

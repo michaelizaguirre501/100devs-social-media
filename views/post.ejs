@@ -24,7 +24,7 @@
         <%}%>
       </div>
     </div>
-    <div class="col-3 mt-5">
+    <div class="col-7 mt-5">
       <p><%= post.caption %></p>
     </div>
 
@@ -36,7 +36,7 @@
       <form
           action="/post/addComments/<%= post.id %>?_method=PUT"
           method="POST"
-          class="col-3"
+          class="col-14"
       >
         <textarea name="newComment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
         <button type="submit" class="btn btn-primary">Add Comment</button>
@@ -54,16 +54,18 @@
             method="POST"
             class="col-3"
           >
-        <button class='deleteComment' type='submit'> Delete</button></li>
+        <button class='btn btn-primary fa fa-trash' type='submit'></button></li>
         <% } %>
       <% } %>
     </ul>
     </section> 
 
 
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+    <div class="col-4 mt-5" id="post-footer-btns">
+      <a class="btn btn-primary" id="return-to-feed-btn"href="/feed">Return to Feed</a>
+      
+      <a class="btn btn-primary" id="return-to-profile-btn" href="/profile">Return to Profile</a>
+      
     </div>
   </div>
 </div>
