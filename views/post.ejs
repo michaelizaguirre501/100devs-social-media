@@ -43,6 +43,10 @@
       </form>
     </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/izzy
     <section>
       <ul>
         <% for(let i =0; i <post.addComments.length; i++) {%>
@@ -54,18 +58,42 @@
             method="POST"
             class="col-3"
           >
+<<<<<<< HEAD
         <button class='btn btn-primary fa fa-trash' type='submit'></button></li>
+        <% } %>
+      <% } %>
+=======
+        <button class='deleteComment' type='submit'> Delete</button></li>
         <% } %>
       <% } %>
     </ul>
     </section> 
 
+    
+     
+  <section>
+    <ul>
+   
+    <% for(let i =0; i <post.addComments.length; i++) {%>
+      <li><%=post.addComments[i] %>
+    <% } %>
+>>>>>>> origin/izzy
+    </ul>
+    </section> 
 
+
+<<<<<<< HEAD
     <div class="col-4 mt-5" id="post-footer-btns">
       <a class="btn btn-primary" id="return-to-feed-btn"href="/feed">Return to Feed</a>
       
       <a class="btn btn-primary" id="return-to-profile-btn" href="/profile">Return to Profile</a>
       
+=======
+
+    <div class="col-6 mt-5">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+>>>>>>> origin/izzy
     </div>
   </div>
 </div>

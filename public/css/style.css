@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a:link {
   text-decoration: none
 }
@@ -40,6 +41,8 @@ img {
   
   
 }
+=======
+>>>>>>> origin/izzy
 
 body{
 
@@ -47,7 +50,10 @@ body{
 
 #respond {
     margin-top: 40px;
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/izzy
   }
   
   #respond input[type='text'],
@@ -66,4 +72,9 @@ body{
     border-radius: 5px;
   
     line-height: 1.4em;
+<<<<<<< HEAD
   }
+=======
+  }
+
+>>>>>>> origin/izzy
